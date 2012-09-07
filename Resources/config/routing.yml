@@ -1,0 +1,3 @@
+ACInst3GridBundle_admin_grid:
+    resource: "@ACInst3GridBundle/Resources/config/routing/grid.yml"
+    prefix:   /admin/grid

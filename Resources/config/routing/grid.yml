@@ -1,0 +1,30 @@
+admin_grid:
+    pattern:  /
+    defaults: { _controller: "ACInst3GridBundle:Grid:index" }
+
+admin_grid_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACInst3GridBundle:Grid:show" }
+
+admin_grid_new:
+    pattern:  /new
+    defaults: { _controller: "ACInst3GridBundle:Grid:new" }
+
+admin_grid_create:
+    pattern:  /create
+    defaults: { _controller: "ACInst3GridBundle:Grid:create" }
+    requirements: { _method: post }
+
+admin_grid_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACInst3GridBundle:Grid:edit" }
+
+admin_grid_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACInst3GridBundle:Grid:update" }
+    requirements: { _method: post }
+
+admin_grid_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACInst3GridBundle:Grid:delete" }
+    requirements: { _method: post }

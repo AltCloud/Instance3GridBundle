@@ -1,0 +1,46 @@
+{% set classnames = "" %}
+
+{% if grid.classprops %}
+	{% set classnames = classnames ~ grid.classprops ~ " " %}	
+{% endif %}
+	
+{% if grid.dir == "row" %}
+	{% set classnames = classnames ~ "gridrow " %}	
+{% endif %}
+
+{% if grid.dir == "col" %}
+	{% set classnames = classnames ~ "gridcol " %}	
+{% endif %}
+
+{% if grid.dir == "container" %}
+	{% set classnames = classnames ~ "gridcontainer " %}	
+{% endif %}
+
+{% set gridid = "grid" ~ grid.id %}
+
+{% if grid.dir != "in" %}
+<div class="{{ classnames }}" id="{{ gridid }}">
+{% endif %}
+
+{% if grid.children.count > 0 %}
+
+	{% for child in grid.children %}
+		{% render "ACInst3GridBundle:Grid:renderPartial" with {'id': child.id } %}
+	{% endfor %}
+
+{% elseif grid.targetController %}
+
+	{% set controller = grid.targetController %}
+	{% set params = grid.targetParams|unserialize %}
+
+	{% render controller with params %}
+
+{% else %}
+
+	<strong>No or Invalid content Specified</strong>
+
+{% endif %}
+
+{% if grid.dir != "in" %}
+</div>
+{% endif %}

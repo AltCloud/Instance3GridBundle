@@ -1,0 +1,57 @@
+{% extends 'ACInst3Bundle::admin_layout.html.twig' %}
+
+{% block content_in %}
+<h1>Grid</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ entity.title }}</td>
+        </tr>
+        <tr>
+            <th>Dir</th>
+            <td>{{ entity.dir }}</td>
+        </tr>
+        <tr>
+            <th>Style_props</th>
+            <td>{{ entity.styleprops }}</td>
+        </tr>
+        <tr>
+            <th>Class_props</th>
+            <td>{{ entity.classprops }}</td>
+        </tr>
+        <tr>
+            <th>Target_controller</th>
+            <td>{{ entity.targetcontroller }}</td>
+        </tr>
+        <tr>
+            <th>Target_params</th>
+            <td>{{ entity.targetparams }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_grid') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_grid_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('admin_grid_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

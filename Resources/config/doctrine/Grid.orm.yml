@@ -1,0 +1,40 @@
+AltCloud\Instance3GridBundle\Entity\Grid:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 255
+    dir:
+      type: string
+      length: '12'
+      nullable: true
+    style_props:
+      type: string
+      length: '455'
+      nullable: true
+    class_props:
+      type: string
+      length: 255
+      nullable: true
+    target_controller:
+      type: string
+      length: 255
+      nullable: true
+    target_params:
+      type: array
+      nullable: true
+  lifecycleCallbacks: {  }
+  oneToMany:
+    children:
+      targetEntity: Grid
+      mappedBy: parent
+  manyToOne:
+    parent:
+      targetEntity: Grid
+      inversedBy: children

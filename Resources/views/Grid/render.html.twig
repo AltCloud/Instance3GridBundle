@@ -1,0 +1,23 @@
+{% extends tpl %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+<div id="full">
+	<h1>{{ grid.title }}</h1>
+	
+	{% set gridid = "grid" ~ grid.id %}
+	{% render "ACInst3GridBundle:Grid:renderPartial" with {'id': grid.id } %}
+	
+	<script type="text/javascript">
+	var $container = jQuery('#{{ gridid }}');
+	$container.imagesLoaded(function(){
+	  $container.masonry({
+		itemSelector : '.box',
+		columnWidth : 310
+	  });
+	});
+	</script>
+</div>
+{% endblock %}
